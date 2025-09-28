@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AI Chatbot</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            backgroundImage: {
+              "custom-bg": "url('rm218-bb-07.jpg')",
+            },
+          },
+        },
+      };
+    </script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="bg-custom-bg bg-cover bg-center font-display">
+    <div
+      class="flex justify-center items-center min-h-screen bg-black/10 backdrop-blur-sm"
+    >
+      <div
+        class="w-full max-w-2xl mx-auto bg-transparent rounded-xl shadow-2xl flex flex-col h-[80vh] overflow-hidden"
+      >
+        <nav
+          class="bg-transparent border-b border-black/10 dark:border-white/20"
+        >
+          <div class="px-4">
+            <div class="flex h-12 items-center">
+              <a
+                class="text-sm font-medium text-black/60 dark:text-white/80 hover:text-black dark:hover:text-white transition-colors"
+                href="index.html"
+                onclick="window.location.href='index.html'"
+              >
+                Home
+              </a>
+            </div>
+          </div>
+        </nav>
+        <header
+          class="p-4 border-b border-black/10 dark:border-white/20 flex justify-between items-center bg-white/30 dark:bg-black/30 backdrop-blur-lg"
+        >
+          <div class="flex items-center space-x-3">
+            <div
+              class="relative flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 text-primary"
+            >
+              <span class="material-symbols-outlined">smart_toy</span>
+            </div>
+            <div>
+              <h1 class="text-base font-bold text-black dark:text-white">
+                AI Assistant
+              </h1>
+              <p class="text-sm text-black/60 dark:text-white/70">Online</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button
+              class="flex items-center justify-center w-10 h-10 text-black transition-colors rounded-lg dark:text-white bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20"
+            >
+              <span class="material-symbols-outlined">history</span>
+            </button>
+            <button
+              class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-black transition-colors rounded-lg dark:text-white bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20"
+            >
+              <span class="material-symbols-outlined">add</span>
+              New Chat
+            </button>
+          </div>
+        </header>
+        <main
+          id="chat-container"
+          class="flex-1 p-6 space-y-6 overflow-y-auto bg-white/20 dark:bg-black/20 backdrop-blur-lg"
+        >
+          <div class="flex items-start gap-3">
+            <img
+              alt="AI Assistant Avatar"
+              class="w-8 h-8 rounded-full"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMMSZotrBsULWAiyiX8hinvVF1w47rIrJcB7ZzGtb2Y9ACgglaihOXcJPRpduxyKKcyXB4dBu7ZFrCKGPd0PrwlXTxJUDvpBkOrjfx2RrvaVl6hqWm5t5tyZlJpkw8r4Hp41QDrgKZ54c-cEeF-sjKtsuLc6FVsHWnYebqnkMiO43xo6Uo5P-zI9PyZUtHjnAhndPFKqJUXc2PxWdm4tQX4VOjF9a1fSBmX0aGKxS9jyKlhDosCEXlg-aci_55fahiKLxnGjn9jY1Q"
+            />
+            <div
+              class="bg-primary/10 dark:bg-primary/30 p-3 rounded-lg max-w-md"
+            >
+              <p class="text-sm text-black/80 dark:text-white/90">
+                Hi there! How can I help you today? Ask me anything about our
+                products, services, or company.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 justify-end">
+            <div class="bg-primary text-white p-3 rounded-lg max-w-md">
+              <p class="text-sm">Can you tell me about the pricing plans?</p>
+            </div>
+            <img
+              alt="User Avatar"
+              class="w-8 h-8 rounded-full"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKUFduFkl9iRuRrH-Cy1NnSuwjolqktqvmmqZ-F1IlDpm12OSPgkLqTcvoGXNUZmSkyM84529y--idwRdvm0QXk6WOzBWc_Qm0zLig7YfWniTWaj7QAiJSm7i5jldpqS_ilJVjtaN9Pv-lPvPAS4GyQHXYhu1vRRHiJEfkCXwZ7EVQ3mAFbdHbMNzAYCrPgt2lWBxEB_7Peu8m3_2TRYej2RbUFQhNh_4G9yidg7cprkzF1hnII7b3ssfOtdd5j2QdEcnSbaXUJeEg"
+            />
+          </div>
+        </main>
+        <footer
+          class="p-4 border-t border-black/10 dark:border-white/20 bg-white/30 dark:bg-black/30 backdrop-blur-lg"
+        >
+          <div class="flex items-center space-x-3">
+            <input
+              id="chat-input"
+              class="flex-1 w-full px-4 py-2 bg-transparent border border-black/20 dark:border-white/30 rounded-lg focus:ring-primary focus:border-primary text-black dark:text-white placeholder-black/60 dark:placeholder-white/70"
+              placeholder="Type your message..."
+              type="text"
+            />
+            <button
+              id="send-button"
+              class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-white hover:bg-primary/90 transition-colors"
+            >
+              <span class="material-symbols-outlined">send</span>
+            </button>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script type="module" src="AI-assistant.js"></script>
+  </body>
+</html>

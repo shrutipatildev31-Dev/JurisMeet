@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Book Appointment - JurisMeet</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "foreground-light": "#101922",
+              "foreground-dark": "#f6f7f8",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2836",
+              "border-light": "#e5e7eb",
+              "border-dark": "#374151",
+              "muted-foreground-light": "#6b7280",
+              "muted-foreground-dark": "#9ca3af",
+            },
+            fontFamily: {
+              display: ["Work Sans", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .navbar-link {
+        transition: all 0.3s ease-in-out;
+        padding: 0.5rem 1rem;
+        border-radius: 0.375rem;
+      }
+      .navbar-link:hover {
+        background-color: var(--primary-color, #1173d4);
+        color: #ffffff;
+      }
+      .navbar-link.active {
+        background-color: var(--primary-color, #1173d4);
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body
+    class="font-display bg-background-light dark:bg-background-dark text-foreground-light dark:text-foreground-dark"
+  >
+    <!-- background img-->
+
+    <div class="fixed top-0 right-0 w-full -z-10">
+      <img src="rm218-bb-07.jpg" alt="" class="w-full object-cover" />
+    </div>
+
+    <div class="flex flex-col min-h-screen">
+      <header
+        class="bg-card-light/80 dark:bg-card-dark/80 border-b border-border-light dark:border-border-dark backdrop-blur-lg fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      >
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center">
+              <img alt="Logo" class="h-10 w-10 rounded-lg" src="logo.png" />
+              <span
+                class="ml-3 text-2xl font-display font-logo font-bold tracking-tight"
+                >JurisMeet</span
+              >
+            </div>
+            <nav class="hidden md:flex items-center space-x-2">
+              <a
+                class="navbar-link text-lg font-medium text-muted-foreground-light dark:text-muted-foreground-dark rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="index.html"
+                onclick="window.location.href='index.html'"
+                >Home</a
+              >
+              <a
+                class="navbar-link text-lg font-medium text-muted-foreground-light dark:text-muted-foreground-dark"
+                href="index.html#about"
+                onclick="window.location.href='index.html#about'"
+                >About</a
+              >
+
+              <a
+                class="navbar-link text-lg font-medium text-muted-foreground-light dark:text-muted-foreground-dark"
+                href="index.html#services"
+                onclick="window.location.href='index.html#services'"
+                >Services</a
+              >
+              <a
+                class="navbar-link text-lg font-medium text-muted-foreground-light dark:text-muted-foreground-dark"
+                href="index.html#education"
+                onclick="window.location.href='index.html#education'"
+                >Qualification</a
+              >
+
+              <a
+                class="navbar-link text-lg font-medium text-muted-foreground-light dark:text-muted-foreground-dark"
+                href="contact.html"
+                onclick="window.location.href='contact.html'"
+                >Contact</a
+              >
+
+              <a
+                class="navbar-link text-lg font-medium text-muted-foreground-light dark:text-muted-foreground-dark"
+                href="signup.html"
+                onclick="window.location.href='signup.html'"
+                >SignUp/Login</a
+              >
+
+              <div class="gap-2">
+                <h3
+                  class="inline-flex items-center justify-center px-5 py-3 text-sm font-bold text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/40 gap-2"
+                  href="AI-assistant.html"
+                  onclick="window.location.href='AI-assistant.html'"
+                >
+                  AI Assistant
+                </h3>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <main
+        class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-32"
+      >
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold tracking-tight lg:text-5xl">
+              Schedule Your Appointment
+            </h1>
+            <p
+              class="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground-light dark:text-muted-foreground-dark"
+            >
+              Complete the form below to book your appointment with our legal
+              experts.
+            </p>
+          </div>
+          <div
+            class="bg-card-light dark:bg-card-dark p-6 sm:p-8 rounded-xl shadow-lg"
+          >
+            <form id="appointment-form" class="space-y-6">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label class="block text-sm font-medium mb-1" for="name"
+                    >Full Name</label
+                  >
+                  <input
+                    class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-card-dark focus:ring-primary focus:border-primary text-sm"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    type="text"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-1" for="email"
+                    >Email Address</label
+                  >
+                  <input
+                    class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-card-dark focus:ring-primary focus:border-primary text-sm"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    type="email"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-1" for="phone"
+                    >Phone Number</label
+                  >
+                  <input
+                    class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-card-dark focus:ring-primary focus:border-primary text-sm"
+                    id="phone"
+                    name="phone"
+                    placeholder="Enter your phone number"
+                    type="tel"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium mb-1" for="case-type"
+                    >Type of Legal Case</label
+                  >
+                  <select
+                    class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-card-dark focus:ring-primary focus:border-primary text-sm"
+                    id="case-type"
+                    name="case-type"
+                  >
+                    <option selected="">Select a case type</option>
+                    <option>Family Law</option>
+                    <option>Criminal Law</option>
+                    <option>Corporate Law</option>
+                    <option>Personal Injury</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+              <div class="pt-4">
+                <label class="block text-sm font-medium mb-1" for="notes"
+                  >Case Description (Optional)</label
+                >
+                <textarea
+                  class="block w-full rounded-lg border-border-light dark:border-border-dark bg-background-light dark:bg-card-dark focus:ring-primary focus:border-primary text-sm"
+                  id="notes"
+                  name="notes"
+                  placeholder="Please provide a brief description of your legal matter."
+                  rows="12"
+                ></textarea>
+              </div>
+              <div
+                class="mt-8 border-t border-border-light dark:border-border-dark pt-6"
+              >
+                <div
+                  class="flex flex-col sm:flex-row justify-end items-center gap-4"
+                >
+                  <div
+                    id="appointment-message-area"
+                    class="text-center font-medium"
+                  ></div>
+                  <button
+                    class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+                    type="submit"
+                  >
+                    Confirm Booking
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer
+        class="bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark"
+      >
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="md:col-span-1">
+              <div class="flex items-center mb-4">
+                <img alt="Logo" class="h-10 w-10 rounded-lg" src="logo.png" />
+                <span class="ml-3 text-2xl font-bold font-display"
+                  >JurisMeet</span
+                >
+              </div>
+              <p
+                class="text-muted-foreground-light dark:text-muted-foreground-dark text-sm"
+              >
+                Providing expert legal advice and representation. Our team is
+                dedicated to achieving the best outcomes for our clients.
+              </p>
+            </div>
+            <div class="md:col-span-3">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div>
+                  <h3 class="text-sm font-semibold tracking-wider uppercase">
+                    Contact
+                  </h3>
+                  <ul class="mt-4 space-y-2 text-sm">
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="#"
+                        >+91 9423208629</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="#"
+                        >rsp151074@gmail.com</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="#"
+                        >Shop No.22, Aalkar Mini Market, Ganesh Nagar,
+                        Opp.Gandhi Lawns, <br />Near ICIC
+                        Bank,Erandavana,Pune-411004.</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold tracking-wider uppercase">
+                    Links
+                  </h3>
+                  <ul class="mt-4 space-y-2 text-sm">
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="index.html"
+                        onclick="window.location.href='index.html'"
+                        >Home</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="index.html#about"
+                        onclick="window.location.href='index.html#about'"
+                        >About Us</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="index.html#services"
+                        onclick="window.location.href='index.html#services'"
+                        >Services</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="index.html#education"
+                        onclick="window.location.href='index.html#education'"
+                        >Qualification</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="index.html#enquiry-form"
+                        onclick="window.location.href='index.html#enquiry-form'"
+                        >Enquiry Form</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="contact.html"
+                        onclick="window.location.href='contact.html'"
+                        >Contact</a
+                      >
+                    </li>
+
+                    <li>
+                      <a
+                        class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                        href="signup.html"
+                        onclick="window.location.href='signup.html'"
+                        >SignUp/Login</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 class="text-sm font-semibold tracking-wider uppercase">
+                    Follow Us
+                  </h3>
+                  <div class="flex mt-4 space-x-4">
+                    <a
+                      class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                      href="#"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M22.675 0h-21.35C.59 0 0 .59 0 1.325v21.35C0 23.41.59 24 1.325 24H12.82v-9.29h-3.128V11.21h3.128V8.65c0-3.1 1.893-4.788 4.658-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.795.715-1.795 1.763v2.31h3.587l-.467 3.5h-3.12V24h5.713C23.41 24 24 23.41 24 22.675V1.325C24 .59 23.41 0 22.675 0z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                      href="#"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.223.085c.645 1.956 2.52 3.379 4.738 3.419a9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="text-muted-foreground-light dark:text-muted-foreground-dark hover:text-primary"
+                      href="#"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V9h2v7zm4 0h-2V9h2v7z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="border-t border-border-light dark:border-border-dark mt-8 pt-6 text-center text-sm text-muted-foreground-light dark:text-muted-foreground-dark"
+          >
+            <p>© 2024 JurisMeet. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="appointment.js"></script>
+  </body>
+</html>

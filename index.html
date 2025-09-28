@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>JurisMeet</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Tailwind Config -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1173d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+              "foreground-light": "#101922",
+              "foreground-dark": "#f6f7f8",
+              "subtle-light": "#e3e5e8",
+              "subtle-dark": "#202a34",
+              "muted-light": "#64748b",
+              "muted-dark": "#94a3b8",
+            },
+            fontFamily: {
+              display: ["Manrope", "sans-serif"],
+              logo: ["Playfair Display", "serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "0.75rem",
+              xl: "1rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-foreground-light dark:text-foreground-dark"
+  >
+    <!-- background img-->
+
+    <div class="fixed top-0 right-0 w-full -z-10 object-cover h-full">
+      <img src="rm218-bb-07.jpg" alt="" class="w-full object-cover" />
+    </div>
+
+    <div class="flex flex-col min-h-screen">
+      <header
+        class="sticky top-0 z-30 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-lg shadow-md"
+      >
+        <!-- NAVBAR STARTS HERE -->
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 bg-gradient-to-t">
+          <div class="flex items-center justify-between h-20">
+            <div class="flex items-center gap-3">
+              <div
+                class="w-10 h-10 bg-subtle-light dark:bg-subtle-dark rounded-full flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-muted-light dark:text-muted-dark"
+                >
+                  <img src="logo.png" alt="" class="rounded-md" />
+                </span>
+              </div>
+              <span class="text-2xl font-logo font-bold tracking-tight"
+                >JurisMeet</span
+              >
+            </div>
+            <nav
+              class="hidden md:flex items-center gap-2 bg-subtle-light dark:bg-subtle-dark p-2 rounded-full"
+            >
+              <a
+                class="text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="#home"
+                >Home</a
+              >
+              <a
+                class="text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="#about"
+                onclick="window.location.href='#about'"
+                >About</a
+              >
+              <a
+                class="text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="#services"
+                onclick="window.location.href='#services'"
+                >Services</a
+              >
+
+              <a
+                class="text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="#education"
+                onclick="window.location.href='#education'"
+                >Qualification
+              </a>
+
+              <a
+                class="text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="contact.html"
+                onclick="window.location.href='contact.html'"
+                >Contact
+              </a>
+
+              <a
+                class="text-sm font-semibold px-4 py-2 rounded-full hover:bg-primary hover:text-white transition-colors duration-300"
+                href="signup.html"
+                onclick="window.location.href='signup.html'"
+                >Sign Up/Login
+              </a>
+            </nav>
+
+            <div
+              class="inline-flex items-center justify-center m-2 px-5 py-3 text-sm font-bold text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/40"
+              href="AI-assistant.html"
+              onclick="window.location.href='AI-assistant.html'"
+            >
+              <h3 class="font-bold">AI Assistant</h3>
+            </div>
+
+            <a
+              class="inline-flex items-center justify-center px-5 py-3 text-sm font-bold text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/40"
+              href="appointment.html"
+            >
+              Book Appointment
+            </a>
+            <!--<button
+              class="md:hidden p-2 rounded-md hover:bg-subtle-light dark:hover:bg-subtle-dark"
+            >
+              <span class="material-symbols-outlined">menu</span>
+            </button>-->
+          </div>
+        </div>
+      </header>
+
+      <!--hero section-->
+      <main class="flex-grow">
+        <section class="relative w-full h-[85vh] overflow-hidden" id="carousel">
+          <div class="carousel-container relative h-full">
+            <div class="carousel-item active absolute inset-0">
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('hero1.png')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"
+              ></div>
+              <div
+                class="relative container mx-auto h-full flex flex-col justify-end pb-12 sm:pb-24 px-4 sm:px-6 lg:px-8 z-10 text-white"
+              >
+                <div class="max-w-3xl space-y-6">
+                  <h1
+                    class="text-4xl md:text-6xl font-extrabold tracking-tight"
+                  >
+                    Expert Legal Guidance for Your Success
+                  </h1>
+                  <p class="text-lg md:text-xl font-light">
+                    Navigating legal challenges can be complex. With years of
+                    experience, I provide clear, effective solutions tailored to
+                    your needs. Let's work together to achieve your goals.
+                  </p>
+                  <a
+                    class="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+                    href="#appointment.html"
+                    onclick="window.location.href='appointment.html'"
+                  >
+                    Book Appointment
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item absolute inset-0">
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('hero2.png')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"
+              ></div>
+              <div
+                class="relative container mx-auto h-full flex flex-col justify-end pb-12 sm:pb-24 px-4 sm:px-6 lg:px-8 z-10 text-white"
+              >
+                <div class="max-w-3xl space-y-6">
+                  <h1
+                    class="text-4xl md:text-6xl font-extrabold tracking-tight"
+                  >
+                    Protecting Your Rights, Securing Your Future
+                  </h1>
+                  <p class="text-lg md:text-xl font-light">
+                    Dedicated to providing robust legal representation. We are
+                    committed to fighting for your rights and achieving the best
+                    possible outcome.
+                  </p>
+                  <a
+                    class="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+                    href="signup.html"
+                    onclick="window.location.href='signup.html'"
+                  >
+                    Sign Up
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item absolute inset-0">
+              <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('hero3.png')"
+              ></div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 to-black/30"
+              ></div>
+              <div
+                class="relative container mx-auto h-full flex flex-col justify-end pb-12 sm:pb-24 px-4 sm:px-6 lg:px-8 z-10 text-white"
+              >
+                <div class="max-w-3xl space-y-6">
+                  <h1
+                    class="text-4xl md:text-6xl font-extrabold tracking-tight"
+                  >
+                    Your Trusted Legal Partner
+                  </h1>
+                  <p class="text-lg md:text-xl font-light">
+                    Building lasting relationships with clients based on trust,
+                    integrity, and exceptional legal service. Your legal matters
+                    are in capable hands.
+                  </p>
+                  <a
+                    class="inline-flex items-center justify-center px-6 py-3 text-base font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+                    href="contact.html"
+                    onclick="window.location.href='contact.html'"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10"
+          >
+            <button
+              class="carousel-dot active h-2 w-2 bg-white rounded-full"
+            ></button>
+            <button
+              class="carousel-dot h-2 w-2 bg-white/50 rounded-full"
+            ></button>
+            <button
+              class="carousel-dot h-2 w-2 bg-white/50 rounded-full"
+            ></button>
+          </div>
+          <button
+            class="carousel-prev absolute top-1/2 left-4 -translate-y-1/2 bg-black/20 text-white p-2 rounded-full z-10 hover:bg-black/40 transition-colors"
+          >
+            <span class="material-symbols-outlined">arrow_back_ios_new</span>
+          </button>
+          <button
+            class="carousel-next absolute top-1/2 right-4 -translate-y-1/2 bg-black/20 text-white p-2 rounded-full z-10 hover:bg-black/40 transition-colors"
+          >
+            <span class="material-symbols-outlined">arrow_forward_ios</span>
+          </button>
+        </section>
+        <div
+          class="container mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 space-y-20"
+        >
+          <!-- ABOUT ME SECTION -->
+          <section id="about">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+              <div class="space-y-4">
+                <h2 class="text-3xl font-bold tracking-tight">About Me</h2>
+                <p class="text-primary font-semibold text-lg">
+                  Raosaheb. S. Patil
+                </p>
+                <p class="text-muted-light dark:text-muted-dark">
+                  I am a seasoned attorney with a proven track record in various
+                  legal domains. My approach is client-focused, ensuring
+                  personalized attention and strategic solutions. I am committed
+                  to upholding the highest standards of legal practice and
+                  achieving the best possible outcomes for my clients.
+                </p>
+                <div class="flex items-center gap-4 pt-4">
+                  <a
+                    class="inline-flex items-center justify-center px-4 py-2 text-sm font-bold text-white bg-primary rounded-lg hover:bg-primary/90 transition-colors"
+                    download
+                    href="Visitingcard.jpeg"
+                  >
+                    Download Visiting Card
+                  </a>
+                  <div class="flex items-center gap-3">
+                    <a
+                      class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                      href="#"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                        ></path>
+                      </svg>
+                    </a>
+                    <a
+                      class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                      href="#"
+                    >
+                      <svg
+                        class="h-6 w-6"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-.424.727-.666 1.581-.666 2.477 0 1.62.823 3.055 2.078 3.888-.76-.025-1.474-.234-2.106-.579v.053c0 2.264 1.605 4.148 3.737 4.583-.39.106-.803.163-1.227.163-.3 0-.59-.028-.875-.083.593 1.849 2.308 3.194 4.34 3.232-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.06 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.202-.005-.403-.014-.602.91-.658 1.7-1.475 2.323-2.41z"
+                        ></path>
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="relative">
+                <div class="aspect-w-5 aspect-h-5">
+                  <img
+                    alt="Portrait of Raosaheb. S. Patil"
+                    class="object-cover rounded-xl shadow-lg w-60 h-65 mx-auto"
+                    src="profileimg.jpg"
+                  />
+                </div>
+                <div
+                  class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 dark:bg-primary/20 rounded-full -z-10"
+                ></div>
+              </div>
+            </div>
+          </section>
+
+          <!-- SERVICES SECTION -->
+          <section id="services">
+            <h2 class="text-3xl font-bold tracking-tight mb-8 text-center">
+              Practice Areas
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div
+                class="p-6 bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-subtle-dark rounded-lg flex flex-col items-center text-center"
+              >
+                <svg
+                  class="mb-4 text-primary"
+                  fill="currentColor"
+                  height="36"
+                  viewBox="0 0 256 256"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"
+                  ></path>
+                </svg>
+                <h3 class="text-lg font-bold mb-2">Corporate Law</h3>
+              </div>
+              <div
+                class="p-6 bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-subtle-dark rounded-lg flex flex-col items-center text-center"
+              >
+                <svg
+                  class="mb-4 text-primary"
+                  fill="currentColor"
+                  height="36"
+                  viewBox="0 0 256 256"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M239.43,133l-32-80h0a8,8,0,0,0-9.16-4.84L136,62V40a8,8,0,0,0-16,0V65.58L54.26,80.19A8,8,0,0,0,48.57,85h0v.06L16.57,165a7.92,7.92,0,0,0-.57,3c0,23.31,24.54,32,40,32s40-8.69,40-32a7.92,7.92,0,0,0-.57-3L66.92,93.77,120,82V208H104a8,8,0,0,0,0,16h48a8,8,0,0,0,0-16H136V78.42L187,67.1,160.57,133a7.92,7.92,0,0,0-.57,3c0,23.31,24.54,32,40,32s40-8.69,40-32A7.92,7.92,0,0,0,239.43,133ZM56,184c-7.53,0-22.76-3.61-23.93-14.64L56,109.54l23.93,59.82C78.76,180.39,63.53,184,56,184Zm144-32c-7.53,0-22.76-3.61-23.93-14.64L200,77.54l23.93,59.82C222.76,148.39,207.53,152,200,152Z"
+                  ></path>
+                </svg>
+                <h3 class="text-lg font-bold mb-2">Civil Litigation</h3>
+              </div>
+              <div
+                class="p-6 bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-subtle-dark rounded-lg flex flex-col items-center text-center"
+              >
+                <svg
+                  class="mb-4 text-primary"
+                  fill="currentColor"
+                  height="36"
+                  viewBox="0 0 256 256"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"
+                  ></path>
+                </svg>
+                <h3 class="text-lg font-bold mb-2">Real Estate Law</h3>
+              </div>
+              <div
+                class="p-6 bg-background-light dark:bg-subtle-dark border border-subtle-light dark:border-subtle-dark rounded-lg flex flex-col items-center text-center"
+              >
+                <svg
+                  class="mb-4 text-primary"
+                  fill="currentColor"
+                  height="36"
+                  viewBox="0 0 256 256"
+                  width="36"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M119.76,217.94A8,8,0,0,1,112,224a8.13,8.13,0,0,1-2-.24l-32-8a8,8,0,0,1-2.5-1.11l-24-16a8,8,0,1,1,8.88-13.31l22.84,15.23,30.66,7.67A8,8,0,0,1,119.76,217.94Zm132.69-96.46a15.89,15.89,0,0,1-8,9.25l-23.68,11.84-55.08,55.09a8,8,0,0,1-7.6,2.1l-64-16a8.06,8.06,0,0,1-2.71-1.25L35.86,142.87,11.58,130.73a16,16,0,0,1-7.16-21.46L29.27,59.58h0a16,16,0,0,1,21.46-7.16l22.06,11,53-15.14a8,8,0,0,1,4.4,0l53,15.14,22.06-11a16,16,0,0,1,21.46,7.16l24.85,49.69A15.9,15.9,0,0,1,252.45,121.48Zm-46.18,12.94L179.06,80H147.24L104,122c12.66,8.09,32.51,10.32,50.32-7.63a8,8,0,0,1,10.68-.61l34.41,27.57Zm-187.54-18,17.69,8.85L61.27,75.58,43.58,66.73ZM188,152.66l-27.71-22.19c-19.54,16-44.35,18.11-64.91,5a16,16,0,0,1-2.72-24.82.6.6,0,0,1,.08-.08L137.6,67.06,128,64.32,77.58,78.73,50.21,133.46l49.2,35.15,58.14,14.53Zm49.24-36.24L212.42,66.73l-17.69,8.85,24.85,49.69Z"
+                  ></path>
+                </svg>
+                <h3 class="text-lg font-bold mb-2">Contract Negotiation</h3>
+              </div>
+            </div>
+          </section>
+
+          <!-- EDUCATION SECTION -->
+
+          <section id="education">
+            <h2 class="text-3xl font-bold tracking-tight text-center">
+              Qualification
+            </h2>
+            <p
+              class="mt-4 text-lg text-muted-light dark:text-muted-dark text-center max-w-2xl mx-auto"
+            >
+              A foundation of academic excellence from prestigious institutions,
+              providing the knowledge and skills to excel in the legal field.
+            </p>
+            <div class="mt-12 grid md:grid-cols-2 gap-10">
+              <div
+                class="bg-background-light dark:bg-subtle-dark rounded-xl shadow-lg p-8 border border-subtle-light dark:border-subtle-dark flex items-start gap-6"
+              >
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center"
+                  >
+                    <img
+                      alt="Law School Logo"
+                      class="h-10 w-10 object-contain"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmhZZcO69w30B6FVM0_a8c5593rT2D60j9egVMvg633vdx581wCC3-Lk21msQ3D67truYll3wsmf90hi63xpt66yIDEYkq9uG41MiuSxkCZfOGLBgI0OOlYKSUPRvsKThq2jDBAiCKgBzCgJKyLurjylIg2uAM4-mjb-R3En1qTX5pbH4rUHNYuW0KcK1h3wyET4gd0S53OH2LS8G78l5AdpeqQscbZE6os6Vdc3OddCx_N7pmG-6h2cvTKAFZalG62ZPJYD_RzxNG"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">
+                    22 Years of Self Practice in Pune
+                  </h3>
+                  <p class="mt-1 text-primary font-semibold">2003-2025</p>
+                  <p class="mt-2 text-muted-light dark:text-muted-dark"></p>
+                  <p class="mt-2 text-sm text-muted-light dark:text-muted-dark">
+                    Specialized in Accounts and Basics Laws. Editor of the Law
+                    Review and recipient of the Chancellor's Award for academic
+                    excellence.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="bg-background-light dark:bg-subtle-dark rounded-xl shadow-lg p-8 border border-subtle-light dark:border-subtle-dark flex items-start gap-6"
+              >
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center"
+                  >
+                    <img
+                      alt="University Logo"
+                      class="h-10 w-10 object-contain"
+                      src="https://lh3.googleusercontent.com/aida-public/AB6AXuATvMSu-juA4zbJTz3gvRHhvl5lUHU2LhGOgPcd8QzxaVETw-xzB3pqoi1nIx3P5QcF3PEuzZDtMmwrTtMDwC-kln0tkjN7mlwt1PzEb4-F-ZGjKuX0xTsqfDz-wegeLprzJbICJ-tAmgaWSnjeRO_kfllWHyXXEHLnv03OtO8Hi-VOHNsjZs8ybvsXdtOE6plXyLl7IWXuGzkcVHhJn3SoVFnzLAQVVMZ8cOuAe0GzF0IwPTa2beAG-4pEBMeBF4sJ3qUIhG1vP6ED"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold">
+                    Bachelor of Social-Legal Sciences & Bachelor of
+                    Laws(BSL.LLB), <br />
+                    5 Years of integrated Law Degree.
+                  </h3>
+                  <p class="mt-1 text-primary font-semibold">
+                    Form ILS Law College.
+                  </p>
+                  <p class="mt-2 text-muted-light dark:text-muted-dark">
+                    1997-2002
+                  </p>
+                  <p class="mt-2 text-sm text-muted-light dark:text-muted-dark">
+                    Graduated with honors. Active in the debate club and student
+                    government, fostering a deep understanding of governance and
+                    public policy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ENQUIRY FORM SECTION -->
+
+          <section id="enquiry-form">
+            <div
+              class="max-w-2xl mx-auto p-8 rounded-xl bg-black/20 dark:bg-white/10 backdrop-blur-sm border border-white/10"
+            >
+              <h2
+                class="text-3xl font-bold tracking-tight mb-8 text-center text-white"
+              >
+                Enquiry Form
+              </h2>
+              <form id="Enquiry-form" class="space-y-6">
+                <div>
+                  <label
+                    class="block text-sm font-medium text-foreground-dark"
+                    for="username"
+                    >Username</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      class="block w-full rounded-md border-white/20 bg-white/10 text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm placeholder:text-gray-400"
+                      id="username"
+                      name="username"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block text-sm font-medium text-foreground-dark"
+                    for="email"
+                    >Email</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      class="block w-full rounded-md border-white/20 bg-white/10 text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm placeholder:text-gray-400"
+                      id="email"
+                      name="email"
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block text-sm font-medium text-foreground-dark"
+                    for="phone"
+                    >Phone Number</label
+                  >
+                  <div class="mt-1">
+                    <input
+                      class="block w-full rounded-md border-white/20 bg-white/10 text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm placeholder:text-gray-400"
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label
+                    class="block text-sm font-medium text-foreground-dark"
+                    for="message"
+                    >Message</label
+                  >
+                  <div class="mt-1">
+                    <textarea
+                      class="block w-full rounded-md border-white/20 bg-white/10 text-white shadow-sm focus:border-primary focus:ring-primary sm:text-sm placeholder:text-gray-400"
+                      id="message"
+                      name="message"
+                      placeholder="Your message..."
+                      rows="4"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div
+                  id="enquiry-message-area"
+                  class="text-center font-medium mt-4 text-white"
+                ></div>
+
+                <div>
+                  <button
+                    class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="bg-subtle-light dark:bg-subtle-dark">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-1">
+              <div class="flex items-center gap-3 mb-4">
+                <div
+                  class="w-10 h-10 bg-subtle-light dark:bg-subtle-dark rounded-full flex items-center justify-center"
+                >
+                  <span
+                    class="material-symbols-outlined text-muted-light dark:text-muted-dark"
+                  >
+                    <img src="logo.png" alt="logo" class="rounded-md" />
+                  </span>
+                </div>
+                <span class="text-2xl font-logo font-bold tracking-tight"
+                  >JurisMeet</span
+                >
+              </div>
+              <p class="text-sm text-muted-light dark:text-muted-dark mt-2">
+                Expert legal guidance for your success. We provide clear,
+                effective solutions tailored to your needs.
+              </p>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+              <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="#home"
+                    >Home</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="#about"
+                    onclick="window.location.href='#about'"
+                    >About</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="#services"
+                    onclick="window.location.href='#services'"
+                    >Services</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="#education"
+                    onclick="window.location.href='#education'"
+                    >Qualification</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="contact.html"
+                    onclick="window.location.href='contact.html'"
+                    >Contact</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="#enquiry-form"
+                    onclick="window.location.href='#enquiry-form'"
+                    >Enquiry</a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    class="text-sm text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                    href="signup.html"
+                    onclick="window.location.href='signup.html'"
+                    >SignUp/Login</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+              <h3 class="text-lg font-semibold mb-4">Connect With Me</h3>
+              <div class="flex items-center gap-4">
+                <a
+                  class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                  ><svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                    ></path></svg
+                ></a>
+                <a
+                  class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                  ><svg
+                    class="h-6 w-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-.424.727-.666 1.581-.666 2.477 0 1.62.823 3.055 2.078 3.888-.76-.025-1.474-.234-2.106-.579v.053c0 2.264 1.605 4.148 3.737 4.583-.39.106-.803.163-1.227.163-.3 0-.59-.028-.875-.083.593 1.849 2.308 3.194 4.34 3.232-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.06 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.202-.005-.403-.014-.602.91-.658 1.7-1.475 2.323-2.41z"
+                    ></path></svg
+                ></a>
+                <a
+                  class="text-muted-light dark:text-muted-dark hover:text-primary transition-colors"
+                  href="#"
+                  ><svg
+                    fill="currentColor"
+                    height="24"
+                    viewBox="0 0 256 256"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"
+                    ></path></svg
+                ></a>
+              </div>
+            </div>
+            <div class="col-span-1 md:col-span-1">
+              <h3 class="text-lg font-semibold mb-4">Get Started</h3>
+              <a
+                class="inline-flex items-center justify-center px-5 py-3 text-sm font-bold text-white bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/40"
+                href="#appointment.html"
+                onclick="window.location.href='appointment.html'"
+              >
+                Book Appointment
+              </a>
+            </div>
+          </div>
+          <div
+            class="mt-8 pt-8 border-t border-muted-light/20 dark:border-muted-dark/20 text-center"
+          >
+            <p class="text-sm text-muted-light dark:text-muted-dark">
+              © 2025 JurisMeet. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="Enquiry-form.js"></script>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign In - JurisMeet</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#3b82f6",
+              "background-light": "#f3f4f6",
+              "background-dark": "#1f2937",
+              "card-light": "#ffffff",
+              "card-dark": "#374151",
+              "text-light": "#111827",
+              "text-dark": "#f9fafb",
+              "subtext-light": "#6b7280",
+              "subtext-dark": "#9ca3af",
+              "border-light": "#e5e7eb",
+              "border-dark": "#4b5563",
+            },
+            fontFamily: {
+              display: ["Roboto", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-cover bg-center min-h-screen flex flex-col"
+    style="background-image: url('rm218-bb-07.jpg')"
+  >
+    <div
+      class="flex-grow flex items-center justify-center bg-black bg-opacity-50"
+    >
+      <div class="w-full max-w-md mx-auto p-4">
+        <div
+          class="bg-card-light/80 dark:bg-card-dark/80 backdrop-blur-sm rounded-lg shadow-2xl p-8 md:p-12 flex flex-col"
+        >
+          <header class="flex flex-col items-center mb-8">
+            <div class="flex items-center space-x-3">
+              <div class="w-8 h-8 bg-primary rounded-full">
+                <img src="logo.png" alt="logo" class="rounded-lg" />
+              </div>
+              <span
+                class="text-lg font-bold text-text-light dark:text-text-dark"
+                >JurisMeet</span
+              >
+            </div>
+          </header>
+          <main class="flex-grow flex flex-col justify-center">
+            <div>
+              <p
+                class="text-sm font-semibold text-primary uppercase text-center"
+              >
+                WELCOME BACK
+              </p>
+              <h1
+                class="text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark mt-2 text-center"
+              >
+                Sign in to your account<span class="text-primary">.</span>
+              </h1>
+              <p
+                class="text-subtext-light dark:text-subtext-dark mt-4 text-center"
+              >
+                Don't have an account?
+                <a
+                  class="font-semibold text-primary hover:underline"
+                  href="signup.html"
+                  onclick="window.location.href='signup.html';"
+                  >Sign Up</a
+                >
+              </p>
+            </div>
+            <form id="signin-form" class="mt-8 space-y-6">
+              <div>
+                <label
+                  class="text-sm font-medium text-subtext-light dark:text-subtext-dark"
+                  for="email"
+                  >Email</label
+                >
+                <div class="mt-1 relative rounded-md shadow-sm">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <span
+                      class="material-icons text-subtext-light dark:text-subtext-dark"
+                      >email</span
+                    >
+                  </div>
+                  <input
+                    class="block w-full pl-10 pr-3 py-3 bg-background-light/70 dark:bg-background-dark/70 border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    type="email"
+                  />
+                </div>
+              </div>
+              <div>
+                <label
+                  class="text-sm font-medium text-subtext-light dark:text-subtext-dark"
+                  for="password"
+                  >Password</label
+                >
+                <div class="mt-1 relative rounded-md shadow-sm">
+                  <div
+                    class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+                  >
+                    <span
+                      class="material-icons text-subtext-light dark:text-subtext-dark"
+                      >lock</span
+                    >
+                  </div>
+                  <input
+                    class="block w-full pl-10 pr-10 py-3 bg-background-light/70 dark:bg-background-dark/70 border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark focus:outline-none focus:ring-primary focus:border-primary sm:text-sm"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    type="password"
+                  />
+                  <div
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  >
+                    <button
+                      class="text-subtext-light dark:text-subtext-dark"
+                      type="button"
+                    >
+                      <span class="material-icons text-xl">visibility_off</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <input
+                    class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                    id="remember-me"
+                    name="remember-me"
+                    type="checkbox"
+                  />
+                  <label
+                    class="ml-2 block text-sm text-subtext-light dark:text-subtext-dark"
+                    for="remember-me"
+                  >
+                    Remember me
+                  </label>
+                </div>
+                <div class="text-sm">
+                  <a
+                    class="font-medium text-primary hover:underline"
+                    href="forgot-password.html"
+                    onclick="window.location.href='forgot-password.html';"
+                  >
+                    Forgot your password?
+                  </a>
+                </div>
+              </div>
+              <div>
+                <p id="success-message" class="text-green-500 text-sm mt-2"></p>
+                <br />
+                <p id="error-message" class="text-red-500 text-sm mt-2"></p>
+                <button
+                  id="submitButton"
+                  class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-primary hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                  type="submit"
+                >
+                  Sign in
+                </button>
+              </div>
+            </form>
+          </main>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-background-dark shadow-inner py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="flex flex-col">
+            <h3 class="text-lg font-bold text-text-dark mb-4">JurisMeet</h3>
+            <p class="text-subtext-dark text-sm">
+              © 2025 JurisMeet. All rights reserved.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-text-dark mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  class="text-subtext-dark hover:text-primary"
+                  href="index.html"
+                  onclick="window.location.href='index.html';"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-subtext-dark hover:text-primary"
+                  href="contact.html"
+                  onclick="window.location.href='contact.html';"
+                  >Contact</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-subtext-dark hover:text-primary"
+                  href="index.html"
+                  onclick="window.location.href='#enquiry-form';"
+                  >Enquiry Form</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-text-dark mb-4">Resources</h4>
+            <ul class="space-y-2">
+              <li>
+                <a class="text-subtext-dark hover:text-primary" href="#"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a class="text-subtext-dark hover:text-primary" href="#"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a class="text-subtext-dark hover:text-primary" href="#">FAQ</a>
+              </li>
+            </ul>
+          </div>
+          <div class="flex flex-col items-start">
+            <h4 class="font-semibold text-text-dark mb-4">Stay Connected!!</h4>
+            <button
+              class="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out"
+              onclick="window.location.href='appointment.html';"
+            >
+              Book Appointment
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="signin.js"></script>
+  </body>
+</html>

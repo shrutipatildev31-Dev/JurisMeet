@@ -1,0 +1,25 @@
+
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+      .carousel-item {
+        display: none;
+        transition: opacity 1s ease-in-out;
+      }
+      .carousel-item.active {
+        display: block;
+      }
+      .chatbot-container {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      }
+      .chatbot-closed {
+        transform: scale(0.95) translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+      }
+      .chatbot-open {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    
