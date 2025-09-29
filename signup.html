@@ -79,6 +79,16 @@
               href="index.html"
               >Home</a
             >
+
+            <div
+              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+              data-alt="User profile picture of a woman with black hair"
+              style="
+                background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDKmuJZJq-fYal3UBhg9NzHxP0Ex8dvH-sHhWukpkahYjToF7qZKZE2753AUqrVZgmgPsKtW4hmL7X9LlCApXpjgy6qX3G5KAHy4bEnVz3nE2z2RzOkQz744QoCBZCNmRewR3SJco9OPEh4NQ1g1pUegpeLh1tbZuWmQ-Fc6vkw7FqqRJD5AO8BPkAldY2WuVsXMCmT3Orlb3g0FdUax8rCP9Kl_SooNVpMslEmvOVeqTc36IpcQl9tGKcR1bTFzaByhBCAd7qe13cZ');
+              "
+              href="UserProfilePage.html"
+              onclick="window.location.href='UserProfilePage.html'"
+            ></div>
           </nav>
         </header>
         <main>
@@ -174,7 +184,7 @@
               <br />
               <p id="error-message" class="text-red-500 text-sm mt-2"></p>
               <button
-                class="w-full py-3 px-6 bg-primary text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+                class="w-full gap-2 py-4 px-6 bg-primary text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
                 type="submit"
               >
                 Create account
@@ -188,6 +198,17 @@
                 Forgot password?
               </button>
             </div>
+            <!-- Somewhere near your existing sign-up form -->
+            <button
+              type="button"
+              id="google-signup-btn"
+              class="w-full py-3 px-6 bg-primary text-white font-semibold rounded-lg hover:bg-gray-800 transition-colors"
+            >
+              Sign up with Google
+            </button>
+
+            <!-- And potentially a section to display logged-in user info -->
+            <div id="user-info" style="margin-top: 20px"></div>
           </form>
           <div class="mt-6 text-center">
             <p class="text-subtext-dark dark:text-subtext-dark">
