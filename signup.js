@@ -38,6 +38,44 @@ const successElement = document.getElementById("success-message");
 // New element for Google Sign-Up button (Ensure this ID is in your HTML)
 const googleSignUpButton = document.getElementById("google-signup-btn");
 
+if (googleSignUpButton) {
+  googleSignUpButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Clear any previous messages
+    // ...
+
+    const provider = new GoogleAuthProvider();
+
+    // 🔥 THE FIX: Force Google to display the account chooser 🔥
+    // This solves the problem of Google skipping the account selection after sign-out.
+    provider.setCustomParameters({
+      prompt: "select_account",
+    });
+    // --------------------------------------------------------
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // Sign-up/Sign-in successful
+        const user = result.user;
+        console.log("Google Sign Up/Sign In Successful:", user);
+
+        // Optional: Update profile with a default display name if it's missing (though Google usually provides one)
+        // This is good practice for all auth methods
+        if (!user.displayName) {
+          updateProfile(user, { displayName: user.email.split("@")[0] });
+        }
+
+        // Redirect to profile page
+        // window.location.href = 'profile.html';
+      })
+      .catch((error) => {
+        // Handle error...
+        console.error("Google Sign Up Error:", error);
+      });
+  });
+}
+
 // Helper function to clear messages
 const clearMessages = () => {
   if (errorElement) errorElement.textContent = "";
