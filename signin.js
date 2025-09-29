@@ -3,6 +3,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/12.3.0/firebas
 import {
   getAuth,
   signInWithEmailAndPassword,
+
+  // 🔥 NEW IMPORTS FOR GOOGLE SIGN-IN
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
 
 // IMPORTANT: Replace this with your actual Firebase config object
@@ -21,67 +25,111 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Get references to your HTML elements using their IDs
-// Note: You must add the id="signin-form", id="error-message", and id="success-message"
-// to your HTML as instructed below.
 const signInForm = document.getElementById("signin-form");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const errorElement = document.getElementById("error-message");
 const successElement = document.getElementById("success-message");
 
-// Add a submit event listener to the form
-signInForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevents the page from refreshing on form submission
+// 🔥 NEW: Get reference to the Google Sign-In button
+const googleSignInButton = document.getElementById("google-signin-btn");
 
-  // Clear any previous messages
-  if (errorElement) errorElement.textContent = "";
-  if (successElement) successElement.textContent = "";
+// Helper function for redirection
+const handleSuccess = (message) => {
+  if (successElement) {
+    successElement.textContent = message;
+  }
+  setTimeout(() => {
+    window.location.href = "profile.html"; // Redirect to profile page after login
+  }, 1500);
+};
 
-  const email = emailInput.value;
-  const password = passwordInput.value;
+// Helper function for error display
+const handleError = (error, element) => {
+  const errorCode = error.code;
 
-  // Use Firebase's signInWithEmailAndPassword function to authenticate the user
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Sign-in successful
-      const user = userCredential.user;
-      console.log("Signed in as:", user.email);
+  if (!element) {
+    console.error("Error: HTML element for message not found.");
+    return;
+  }
 
-      if (successElement) {
-        successElement.textContent = "Sign in successful!! ";
-      }
+  let message = `An unexpected error occurred. Please try again.`;
 
-      // Optional: Redirect the user to a secure page after a short delay
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 1500);
-    })
-    .catch((error) => {
-      // Handle and display specific Firebase sign-in errors
-      const errorCode = error.code;
+  switch (errorCode) {
+    case "auth/invalid-credential":
+    case "auth/user-not-found":
+    case "auth/wrong-password":
+      message = "Invalid email or password. Please try again.";
+      break;
+    case "auth/user-disabled":
+      message = "This account has been disabled.";
+      break;
+    case "auth/invalid-email":
+      message = "The email address is not valid.";
+      break;
+    // Specific to Google/Popup errors
+    case "auth/popup-closed-by-user":
+      message = "Sign-in window was closed before completion.";
+      break;
+    default:
+      console.error("Firebase Error:", error);
+  }
+  element.textContent = message;
+};
 
-      if (!errorElement) {
-        console.error("Error: HTML element with id 'error-message' not found.");
-        return;
-      }
+// -----------------------------------------------------------------
+// 1. Email/Password Sign In Logic (Existing)
+// -----------------------------------------------------------------
 
-      switch (errorCode) {
-        case "auth/invalid-credential":
-        case "auth/user-not-found":
-        case "auth/wrong-password":
-          errorElement.textContent =
-            "Invalid email or password. Please try again.";
-          break;
-        case "auth/user-disabled":
-          errorElement.textContent = "This account has been disabled.";
-          break;
-        case "auth/invalid-email":
-          errorElement.textContent = "The email address is not valid.";
-          break;
-        default:
-          errorElement.textContent = `An unexpected error occurred. Please try again.`;
-          console.error("Firebase Error:", error);
-          break;
-      }
+if (signInForm) {
+  signInForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // Clear any previous messages
+    if (errorElement) errorElement.textContent = "";
+    if (successElement) successElement.textContent = "";
+
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        handleSuccess("Sign in successful!");
+      })
+      .catch((error) => {
+        handleError(error, errorElement);
+      });
+  });
+}
+
+// -----------------------------------------------------------------
+// 2. 🔥 Google Sign In Logic (New)
+// -----------------------------------------------------------------
+
+if (googleSignInButton) {
+  googleSignInButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Clear messages
+    if (errorElement) errorElement.textContent = "";
+    if (successElement) successElement.textContent = "";
+
+    const provider = new GoogleAuthProvider();
+
+    // 🔥 FIX: FORCES GOOGLE TO SHOW THE ACCOUNT CHOOSER PROMPT 🔥
+    // This is necessary to allow users to switch Google accounts after a sign-out.
+    provider.setCustomParameters({
+      prompt: "select_account",
     });
-});
+
+    signInWithPopup(auth, provider)
+      .then(() => {
+        // Handle successful sign-in
+        handleSuccess("Google Sign in successful!");
+      })
+      .catch((error) => {
+        // Handle errors
+        handleError(error, errorElement);
+      });
+  });
+}
